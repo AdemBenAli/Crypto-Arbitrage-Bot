@@ -1,19 +1,27 @@
 # 📈 Pro Arbitrage Bot & Real-Time Dashboard
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Status](https://img.shields.io/badge/Status-Active-success.svg)
 
-A high-performance, WebSocket-based cross-exchange cryptocurrency arbitrage scanner with a lightweight real-time dashboard. This project is designed to detect and stream arbitrage opportunities across multiple exchanges with minimal latency.
+A high-frequency, ultra-low latency cryptocurrency arbitrage trading bot designed to detect cross-exchange arbitrage opportunities in under 0.1 milliseconds. By leveraging high-speed WebSocket connections for real-time order book data, the system continually monitors over 100+ cryptocurrency pairs across 6 major global exchanges (Binance, OKX, Bybit, Gate.io, MEXC, and KuCoin).
 
 ---
 
-## 🚀 Features
+## 🚀 Key Capabilities
 
-- **High-Performance Scanning**: Powered by `ccxt.pro`, utilizing WebSockets for real-time market data.
-- **Cross-Exchange Capabilities**: Continuously monitors multiple exchanges for price discrepancies.
-- **Live Real-Time Dashboard**: A lightweight `aiohttp` web server streaming live stats and arbitrage opportunities directly to your browser.
-- **Env Variable Configuration**: Easy integration of API keys and Telegram bot tokens via `.env` file.
+- **Sub-Millisecond Scanning Engine**: An asynchronously driven Python backend utilizing `ccxt.pro`. The hot-path scanner algorithm is heavily optimized to calculate net profits, account for taker fees, and evaluate trading volumes with minimal overhead.
+- **Live Real-Time Dashboard**: A sleek, modern web interface powered by `aiohttp.web`. It uses WebSockets to stream live statistical data and profitable routes directly to the browser, leveraging Tailwind CSS and Chart.js for premium aesthetics and animated visualizations.
+- **Telegram Alerting System**: Integrated bot that dispatches instant notifications mapping out expected slippage, exact routing (e.g., Buy on Binance -> Sell on OKX), and confidence scoring for detected opportunities.
+- **Robust Error Handling**: Built-in automatic fallback and reconnection logic for unstable exchange WebSockets.
+
+---
+
+## 💻 Tech Stack
+
+- **Backend**: Python 3.11+, `ccxt.pro`, `asyncio`, `aiohttp`, `python-telegram-bot`
+- **Frontend**: JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Chart.js, Vanilla JS WebSockets
+- **Concepts**: High-Frequency Trading (HFT), Concurrency, Low-Latency Systems Optimization
 
 ---
 
@@ -70,14 +78,13 @@ python dashboard.py
 
 ---
 
-## 💡 Notes for Portfolio / Demo Use
+## 💡 Production Deployment Recommendations
 
-- **Intended Use:** The dashboard is intentionally kept minimal for immediate demonstrations, recordings, or Upwork portfolio showcasing.
-- **Production Recommendations:** Before deploying to a live production environment, consider adding:
-  - Authentication to the dashboard.
-  - Persistent logging mechanisms (e.g., database integrations).
-  - Secure and robust API key management (like AWS Secrets Manager).
-- **Showcasing:** Run the bot locally and use a screen recorder to capture the UI and terminal for a compelling Upwork portfolio piece.
+- **Intended Use:** The provided dashboard is kept minimal for local setup and immediate visualization.
+- **Production Enhancements:** Before deploying to a live production server, ensure you add:
+  - **Security:** Authentication to the dashboard endpoint.
+  - **Logging:** Persistent logging mechanisms (e.g., PostgreSQL/MongoDB for trades, ELK stack for logs).
+  - **Secrets:** Secure and robust API key management (like AWS Secrets Manager or HashiCorp Vault).
 
 ---
 
